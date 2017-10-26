@@ -1,0 +1,61 @@
+<div class="homepage">
+   <section id="intro" class="section-intro">
+      <div class="container intro-text ">
+         <h1 class="text-center wow fadeInDown">Browse Completed Projects</h1>
+         <div class="row mt40">
+            <div class="col-xs-6 col-sm-offset-2 col-md-offset-2 col-sm-4 col-md-4 wow fadeInDown">
+               <!-- dropdown -->
+               <div class="dropdown customDropdown">
+                  <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary customSelect" data-target="#" href="">
+                  Project Type <span class="fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                     <li><a href="#">Flooring</a></li>
+                     <li class="dropdown-submenu">
+                        <a tabindex="-1" href="#"><strong>Services</strong></a>
+                        <ul class="dropdown-menu">
+                           <li><a href="#">Service 1</a></li>
+                           <li><a href="#">Service 2</a></li>
+                        </ul>
+                     </li>
+                     <li><a href="#">Kitchen/Bathroom</a></li>
+                     <li><a href="#">Remodelling</a></li>
+                  </ul>
+               </div>
+               <!-- dropdown -->
+            </div>
+            <!-- col-6 -->
+            <div class="col-xs-6 col-sm-4 col-md-4 wow fadeInDown">
+               <div class="dropdown customDropdown">
+                  <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary customSelect" data-target="#">
+                  City <span class="fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                     <li><a href="#">Toronto</a></li>
+                     <li><a href="#">London</a></li>
+                     <li><a href="#">Oakville</a></li>
+                     <li><a href="#">Mississauga</a></li>
+                  </ul>
+               </div>
+               <!-- dropdown -->
+            </div>
+            <!-- col-6 -->	
+         </div>
+         <!-- row -->
+      </div>
+   </section>
+   <div class="intro-signup">
+      <div class="container">
+        <%= render "/layouts/alerts" %>
+        <h2 class="wow fadeInDown">START YOUR CONSTRUCTION BUSINESS</h2>
+        <br/>
+        <p class="wow fadeInDown">
+          <% if user_signed_in? %>
+            <%= link_to 'Edit profile', edit_user_registration_path,:class=>"btn btn-primary btn-lg redbtn hvr-sink" %>
+          <% else %>
+            <%= link_to "Signup", new_user_registration_path,:class=>"btn btn-primary btn-lg redbtn hvr-sink" %>
+          <% end %>
+        </p>
+      </div>
+   </div>
+</div> 
