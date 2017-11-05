@@ -9,14 +9,41 @@
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                   <%= devise_error_messages! %>
 
-                  <%= f.email_field :email, autofocus: true,:class=>"form-control",:placeholder=>"Email Address ...",:required=>true %>
+                  <%= f.text_field :first_name, autofocus: true,:class=>"form-control",:placeholder=>"First Name",:required=>true %>
 
-                  <%= f.password_field :password,:class=>"form-control",:placeholder=>"New Password", autocomplete: "off" %>
-                  <i>(leave blank if you don't want to change it)</i><br />
+                  <%= f.text_field :last_name, autofocus: true,:class=>"form-control",:placeholder=>"Last Name",:required=>true %>
 
-                  <%= f.password_field :password_confirmation,:class=>"form-control",:placeholder=>"Confirm New Password", autocomplete: "off" %>
+                  <%= f.email_field :email,:class=>"form-control",:placeholder=>"Email Address ...",:required=>true %>
 
-                  <p><%= f.submit "SIGN UP",:class=>"btn loginBtn hvr-sink" %></p>
+                  <% if resource.pending_specialist || resource.specialist %>
+                    <%= f.select :experience_id,Experience.all.collect {|p| [ p.title, p.id ] }, { include_blank: "Select Experience" }, {:class=>"form-control",:required=>true}  %>
+                    
+                    <div id="age">
+                      <%= f.check_box :age_limit, {:checked=>true},:class=>"form-control" %>
+                      <label class="form-label">Are you greater than 21</label>
+                    </div>
+
+                    <%= f.hidden_field :specialist,:value=>true %>
+    
+                    <% resource.build_business if resource.business.nil? %>
+                    <%= f.fields_for :business do |n| %>
+
+                      <h3 class="business_detail"> Business Details </h3>
+
+                      <%= n.text_field :name,:class=>"form-control",:placeholder=>"Business Name",:required=>true %>
+
+                      <%= n.text_field :city,:class=>"form-control",:placeholder=>"City",:required=>true %>
+
+                      <%= n.text_field :address,:class=>"form-control",:placeholder=>"Address",:required=>true %>
+
+                      <%= n.text_field :province,:class=>"form-control",:placeholder=>"Province",:required=>true %>
+
+                      <%= n.text_field :postal_code,:class=>"form-control",:placeholder=>"Postal Code",:required=>true %>
+
+                    <% end -%>
+                  <% end %>
+
+                  <p><%= f.submit "UPDATE PROFILE",:class=>"btn loginBtn hvr-sink" %></p>
                 <% end %>
                 <br />
               </div>

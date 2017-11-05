@@ -323,18 +323,7 @@ body {
     padding-bottom: 12px;
     margin-bottom: 0;
 }
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-}
-::-webkit-scrollbar {
-    width: 12px;
-    background-color: #fff;
-}
-::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    background-color: #FF9F1F;
-}
+
 .sideBar {
     padding: 0 !important;
     margin: 0 !important;
@@ -824,4 +813,26 @@ body {
 }
 .navbar-default{
   background-color: #fff;
+}
+.business_detail{
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+#user_experience_id{
+  cursor: pointer;
+  padding: 0px 0px;
+  margin-top: 40px;
+}
+#age{
+  margin-top: 40px;
+}
+.mynav li .registerNow{
+  margin-top: 10px;
+}
+.mynav li .registerNow:hover,.mynav li .registerNow:active{
+  background: #FF9F1F;
+  border-color: #FF9F1F;
+  color: #fff !important;
+  -webkit-transform: translateY(2px);
 }
